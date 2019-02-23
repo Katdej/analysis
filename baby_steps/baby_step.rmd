@@ -36,10 +36,11 @@ select 1
 ```
 
 ```{r}
+library(getPass)
 library(RPostgreSQL)
 library(DBI)
 pgdrv <- dbDriver(drvName = 'PostgreSQL')
-db <-DBI::dbConnect(pgdrv, dbname = 'analysis', host = 'localhost', port = 5432, user = 'postgres', password = '')
+db <-DBI::dbConnect(pgdrv, dbname = 'analysis', host = 'localhost', port = 5432, user = 'postgres', password = getPass('Enter Password:'))
 # db <-DBI::dbConnect(pgdrv, dbname = 'postgres', host = 'localhost', port = 5432, user = 'postgres', password = getPass('Enter Password:'))
 # DBI::dbWriteTable(db, "mtcars", mtcars)
 # query <- 'select 1'
